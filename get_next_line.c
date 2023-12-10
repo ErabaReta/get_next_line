@@ -33,14 +33,14 @@ char	*deviser(char **big_string)
 
 int	reader(char **buffer, ssize_t *readed, char **big_string, int fd)
 {
-	*buffer = (char *)malloc(sizeof(char) * ((size_t)BUFFER_SIZE + 1));
+	*buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (*buffer == NULL)
 	{
 		if (*big_string != NULL)
 			free(*big_string);
 		return (0);
 	}
-	*readed = read(fd, *buffer, (size_t)BUFFER_SIZE);
+	*readed = read(fd, *buffer, BUFFER_SIZE);
 	if (*buffer == NULL || *readed <= 0)
 	{
 		free(*buffer);

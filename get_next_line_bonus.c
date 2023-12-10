@@ -33,7 +33,7 @@ char	*deviser(char **big_string)
 
 int	reader(char **buffer, int *readed, char **big_string, int fd)
 {
-	*buffer = (char *)malloc(sizeof(char) * ((size_t)BUFFER_SIZE + 1));
+	*buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (*buffer == NULL)
 		return (0);
 	*readed = read(fd, *buffer, BUFFER_SIZE);
@@ -47,7 +47,7 @@ int	reader(char **buffer, int *readed, char **big_string, int fd)
 	}
 	buffer[0][*readed] = '\0';
 	*big_string = ft_strjoin(*big_string, *buffer);
-	if (ft_strlen(*buffer, 1) != -1 || *readed != (size_t)BUFFER_SIZE)
+	if (ft_strlen(*buffer, 1) != -1 || *readed != (ssize_t)BUFFER_SIZE)
 	{
 		free(*buffer);
 		return (1);
